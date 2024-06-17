@@ -7,12 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Name="CreateNewNote" Content="Create New Note" Width="100" Height="30" HorizontalAlignment="Left" Margin="47,47,0,0" VerticalAlignment="Top" Click="MyButton_Click"/>
+        <Button Name="CreateNewNote" Content="Create New Note" Width="120" Height="30" HorizontalAlignment="Left" Margin="47,47,0,0" VerticalAlignment="Top" Click="MyButton_Click"/>
         <TextBox Name="Title" Width="200" Height="30" HorizontalAlignment="Right" Margin="0,47,47,0" VerticalAlignment="Top" Visibility="Hidden" 
                  Text="Title" Foreground="Gray" GotFocus="Title_GotFocus" LostFocus="Title_LostFocus"/>
         <TextBox Name="Description" Width="200" Height="190" HorizontalAlignment="Right" Margin="0,77,47,0" VerticalAlignment="Top" Visibility="Hidden"
                  Text="Description" Foreground="Gray" GotFocus="Description_GotFocus" LostFocus="Description_LostFocus"/>
         <Button Name="Savebtn" Content="Save file" HorizontalAlignment="Left" Margin="725,382,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.656,0.513" Click="Savebtn_Click" Height="22"/>
         <Button  Name="Exitbtn" Content="Exit" HorizontalAlignment="Left" Margin="653,382,0,0" VerticalAlignment="Top" Width="43" Click="Exitbtn_Click" Height="22"/>
+        <Button Name="Openbtn" Content="Open existing Notes" HorizontalAlignment="Left" Height="30" Margin="47,100,0,0" VerticalAlignment="Top" Width="120" Click="Openbtn_Click"/>
+        <StackPanel x:Name="NotesPanel" Orientation="Vertical"></StackPanel>
     </Grid>
 </Window>

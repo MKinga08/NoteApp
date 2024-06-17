@@ -25,7 +25,7 @@ namespace NoteApp
         {
             InitializeComponent();
             jsonNoteManager = new JSONNote();
-            LoadNotes();
+            //LoadNotes();
 
         }
         private void MyButton_Click(object sender, RoutedEventArgs e)
@@ -82,6 +82,7 @@ namespace NoteApp
             {
                 string fileName = "C:\\Users\\User\\Documents\\My_Notes.json";
                 jsonNoteManager.ReadFromFile(fileName);
+                CreateNoteButtons();
             }
             catch (FileNotFoundException)
             {
@@ -92,6 +93,33 @@ namespace NoteApp
         private void Exitbtn_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        public void Openbtn_Click(object sender, RoutedEventArgs e)
+        {
+            LoadNotes();
+        }
+        private void CreateNoteButtons()
+        {
+            NotesPanel.Children.Clear();
+
+            foreach (var note in jsonNoteManager.JsonNotes)
+            {
+                Button noteButton = new Button
+                {
+                    Content = note.Title,
+                    Margin = new Thickness(5),
+                    Width = 100,
+                    VerticalAlignment = VerticalAlignment.Center
+                };
+
+                noteButton.Click += (s, e) =>
+                {
+                    MessageBox.Show(note.Description);
+                };
+
+                NotesPanel.Children.Add(noteButton);
+            }
         }
     }
 }
