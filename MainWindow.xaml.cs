@@ -25,7 +25,6 @@ namespace NoteApp
         {
             InitializeComponent();
             jsonNoteManager = new JSONNote();
-            //LoadNotes();
 
         }
         private void MyButton_Click(object sender, RoutedEventArgs e)
@@ -115,7 +114,12 @@ namespace NoteApp
 
                 noteButton.Click += (s, e) =>
                 {
-                    MessageBox.Show(note.Description);
+                    Title.Visibility = Visibility.Visible;
+                    Description.Visibility = Visibility.Visible;
+                    Title.Foreground = new SolidColorBrush(Colors.Black);
+                    Description.Foreground = new SolidColorBrush(Colors.Black);
+                    Title.Text = note.Title;
+                    Description.Text = note.Description;
                 };
 
                 NotesPanel.Children.Add(noteButton);
